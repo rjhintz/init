@@ -1,7 +1,10 @@
 # init
 Initialization functions
 ##AWS 
+####CIDR
+`172.30.0.0/16` <= 1 B, 64K addresses
 ###AWS Linux AMIs
+####Update Script
 ```
 yum -y update
 rpm -qa | grep git
@@ -22,7 +25,6 @@ Security Group Basic lesson @ 2:00
 service httpd status
 service httpd start
 ```
-
 
 ```
 [root@ip-172-30-0-110 ec2-user]# chkconfig
