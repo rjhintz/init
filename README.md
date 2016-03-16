@@ -1,11 +1,22 @@
 # init
 Initialization functions
-##AWS 
-####CIDR
+## AWS 
+#### CIDR
 `172.30.0.0/16` <= 1 B, 64K addresses
-###AWS Linux AMIs
-####Update Script
+### AWS Linux AMIs
+#### Update Script - Training
 ```
+#!/bin/bash
+yum -y update
+yum -y install httpd
+aws s3 cp s3://rjh-aws-training /var/www/html/ --recursive
+service httpd start
+chkconfig httpd on
+```
+
+#### Update Script - Standard Candidate
+```
+#!/bin/bash
 yum -y update
 rpm -qa | grep git
 yum -y install git
@@ -17,9 +28,10 @@ yum -y install python34-virtualenv
 
 yum -y install httpd
 yum -y install nginx
+
 ```
 
-####Apache Web Server
+#### Apache Web Server
 Security Group Basic lesson @ 2:00
 ```
 service httpd status
